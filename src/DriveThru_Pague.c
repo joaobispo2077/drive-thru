@@ -1,7 +1,7 @@
 /* Bibliotecas */
 #include "libDriveThru.h"
 
-/* Protótipos de funções */
+/* Protï¿½tipos de funï¿½ï¿½es */
 int   main (void);
 
 /* Corpo do programa */
@@ -20,14 +20,14 @@ int   main (void)
     	printf ("\n|   Formas de Pagamento - Pedido %3i  |", Rpgto.Codpgto);
     	printf ("\n+-------------------------------------+");
     	printf ("\n|         1. Dinheiro                 |");
-    	printf ("\n|         2. Cartão de Crédito        |");
-    	printf ("\n|         3. Cartão de Débito         |");
+    	printf ("\n|         2. Cartï¿½o de Crï¿½dito        |");
+    	printf ("\n|         3. Cartï¿½o de Dï¿½bito         |");
     	printf ("\n|         4. Cheque                   |");
     	printf ("\n+-------------------------------------+");
-    	printf ("\n   Sua opção: "); fflush(stdin); esc = getche();
+    	printf ("\n   Sua opï¿½ï¿½o: "); fflush(stdin); esc = getche();
     	if ( esc < '1' || esc > '4')
     	{
-    	   printf ("\nForma de pagamento INVÁLIDA!");
+    	   printf ("\nForma de pagamento INVï¿½LIDA!");
     	   getch();
         }
     } while ( esc < '1' || esc > '4');
@@ -35,29 +35,29 @@ int   main (void)
     switch ( esc )
     {
     	case '1': strcpy (Rpgto.Formapgto, "Dinheiro");	break;
-    	case '2': strcpy (Rpgto.Formapgto, "Cartão"); 	break;
-		case '3': strcpy (Rpgto.Formapgto, "Cartão"); 	break;
+    	case '2': strcpy (Rpgto.Formapgto, "Cartï¿½o"); 	break;
+		case '3': strcpy (Rpgto.Formapgto, "Cartï¿½o"); 	break;
 		case '4': strcpy (Rpgto.Formapgto, "Cheque");	break;
 	}
-	/* Atualiza o valor do último pedido */
+	/* Atualiza o valor do ï¿½ltimo pedido */
     resgataTemp (&Rpgto_temp);	
     if ( Rpgto.Codpgto == Rpgto_temp.Codpgto )
     {
         Rpgto.Valorpgto = Rpgto_temp.Valorpgto;
         registraPgto (Rpgto, 'a'); 
         
-        /* Caso o pagamento seja feito com cartão...*/
+        /* Caso o pagamento seja feito com cartï¿½o...*/
         if ( esc == '2' || esc == '3')
-        {  Rcart.Codpgto = Rpgto.Codpgto; /*... atualiza o nro do pedido no registro de cartão */
-           solicitaCartao(&Rcart); /* captura o nro do cartão */
-           mascaraCartao (&Rcart); /* mascara o nro do cartão */
-		   /* Grava o número do cartão */
+        {  Rcart.Codpgto = Rpgto.Codpgto; /*... atualiza o nro do pedido no registro de cartï¿½o */
+           solicitaCartao(&Rcart); /* captura o nro do cartï¿½o */
+           mascaraCartao (&Rcart); /* mascara o nro do cartï¿½o */
+		   /* Grava o nï¿½mero do cartï¿½o */
            gravaCartao(Rcart);
         }
     }
     else
     {
-    	printf ("\nErro! Último pedido não localizado!");
+    	printf ("\nErro! ï¿½ltimo pedido nï¿½o localizado!");
     	getch();
 	}
     return (0);

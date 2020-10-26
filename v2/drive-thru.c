@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+
+  struct modelo_produto{
+    int codigoProduto;
+    char nomeProduto[30];
+    float precoProduto;
+  };
+
+struct modelo_produto produto;
+
+  struct modelo_pedido{
+
+  };
+
+struct modelo_produto produto;
+
 int mostraOpcoesDePagamento(){
     return 0;
 }
