@@ -10,8 +10,8 @@ int vendas() {
     int quantidade;
     float custoTotal_1, custoTotal_2, custoTotal_3, custoTotal_4, custoTotal_5;
 
-    printf("\nSelecione o código do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
-    printf("\n\nDigite o código do produto escolhido pelo cliente\n\n: ");
+    printf("\nSelecione o codigo do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
+    printf("\n\nDigite o codigo do produto escolhido pelo cliente\n\n: ");
     scanf("%i", &codProd);
 
     printf("Digite a quantidade escolhida pelo cliente: "); 
@@ -86,7 +86,7 @@ int vendas() {
       // {3, "Coxinha de jaca", 3.0}, {4, "Pastel de brócolis com queijo", 6.0},
       // {5, "Pizza de quatro queijos", 12.5}};
 
-      // printf("Código do produto: %i -- Nome: %s -- custo do produto: R$ %f \n", baseDeDados[0].codigoProduto,
+      // printf("codigo do produto: %i -- Nome: %s -- custo do produto: R$ %f \n", baseDeDados[0].codigoProduto,
       //                                                                            baseDeDados[0].nomeProduto,
       //                                                                            baseDeDados[0].custoProduto);
                                                                                             
@@ -246,7 +246,7 @@ int clientePagou(int modoDePagamento) {
       break;
 }
 
-  // printf("\n+-----------------------------------------------------------+\n|                DRIVE THRU DO MICKEY & DONALDS             |\n+-----------------------------------------------------------+\n| Nro do pedido: 005                                        |\n+-----------------------------------------------------------+\n|Cód | Produto              | Custo Unit | Qtd | Valor item |\n+-----------------------------------------------------------+\n|  2 | PRODUTO DOIS         |       2,00 |  10 |      20,00 |");
+  printf("\n+-----------------------------------------------------------+\n|                DRIVE THRU DO MICKEY & DONALDS             |\n+-----------------------------------------------------------+\n| Nro do pedido: 005                                        |\n+-----------------------------------------------------------+\n|Cód | Produto              | Custo Unit | Qtd | Valor item |\n+-----------------------------------------------------------+\n|  2 | PRODUTO DOIS         |       2,00 |  10 |      20,00 |");
 
 
 // "+-----------------------------------------------------------+

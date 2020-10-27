@@ -3,53 +3,6 @@
 #include <locale.h>
 #define DATA_SIZE 1000
 
-// MÓDULO DE VENDAS
-int vendas() {
-
-    setlocale(LC_ALL, "Portuguese");
-
-    int codProd;
-    int quantidade;
-    float custoTotal_1, custoTotal_2, custoTotal_3, custoTotal_4, custoTotal_5;
-
-    printf("Selecione o código do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
-    scanf("%i", &codProd);
-
-    printf("Digite a quantidade escolhida pelo cliente: "); 
-    scanf("%i", &quantidade);
-
-    custoTotal_1 = 6 * quantidade;
-    custoTotal_2 = 9.5 * quantidade;
-    custoTotal_3 = 3 * quantidade;
-    custoTotal_4 = 6 * quantidade;
-    custoTotal_5 = 6 * quantidade;
-
-   
-    switch (codProd)
-    {
-      case 1: 
-        printf("O produto escolhido foi o Pão de Batata, com valor de R$6.00, e a quantidade escolhida é igual a %i. O custo total dessa compra é igual a %f", quantidade, custoTotal_1);
-      break;
-
-      case 2: 
-        printf("O produto escolhido foi o Hot Dog Vegetariano, com valor de R$9.50, e a quantidade escolhida é igual a %i. O custo total dessa compra é igual a %f", quantidade, custoTotal_2);
-      break;
-
-      case 3: 
-        printf("O produto escolhido foi a Coxinha de Jaca, com valor de R$3.00, e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_3);
-      break;
-
-      case 4: 
-        printf("O produto escolhido foi a Pastel de Brócolis com queijo, com valor de R$6.00 e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_4);
-      break;
-
-      case 5:
-        printf("O produto escolhido foi a Pizza de quatro queijos, com valor de R$12.50 e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_5);
-      break;
-
-      default:
-      break;
-    }
 
 
       // DATABASE VENDAS
@@ -96,9 +49,7 @@ int vendas() {
       
       // FIM DATABASE VENDAS
 
-      // FIM MÓDULO VENDAS
 
-}
 
       
 
@@ -224,25 +175,126 @@ int vendas() {
   
 
   // FIM MÓDULO PAGUE
-
-
-
-    int main(void) {
-      setlocale(LC_ALL, "Portuguese");
-
-      printf("\n+***********************************************************+\n");
-        printf("|  SEJA MUITO BEM-VINDO AO  DRIVE THRU DO MICKEY & DONALDS  |\n");
-        printf("+***********************************************************+\n");
-        printf("|Insira as informacoes solicitadas para prosseguir com o    |\n");
-        printf("| o pedido ;D                                               |\n");
-        printf("+***********************************************************+\n");
-
-      efetuarPedido();
-      vendas(); 
-      pague();
-      capturarCartao();
   
+// MÓDULO DE VENDAS
+int vendas() {
+
+    setlocale(LC_ALL, "Portuguese");
+
+    int codProd;
+    int quantidade;
+    float custoTotal_1, custoTotal_2, custoTotal_3, custoTotal_4, custoTotal_5;
+
+    printf("Selecione o código do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
+    scanf("%i", &codProd);
+
+    printf("Digite a quantidade escolhida pelo cliente: "); 
+    scanf("%i", &quantidade);
+
+    custoTotal_1 = 6 * quantidade;
+    custoTotal_2 = 9.5 * quantidade;
+    custoTotal_3 = 3 * quantidade;
+    custoTotal_4 = 6 * quantidade;
+    custoTotal_5 = 6 * quantidade;
+
+   
+    switch (codProd)
+    {
+      case 1: 
+        printf("O produto escolhido foi o Pão de Batata, com valor de R$6.00, e a quantidade escolhida é igual a %i. O custo total dessa compra é igual a %f", quantidade, custoTotal_1);
+      break;
+
+      case 2: 
+        printf("O produto escolhido foi o Hot Dog Vegetariano, com valor de R$9.50, e a quantidade escolhida é igual a %i. O custo total dessa compra é igual a %f", quantidade, custoTotal_2);
+      break;
+
+      case 3: 
+        printf("O produto escolhido foi a Coxinha de Jaca, com valor de R$3.00, e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_3);
+      break;
+
+      case 4: 
+        printf("O produto escolhido foi a Pastel de Brócolis com queijo, com valor de R$6.00 e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_4);
+      break;
+
+      case 5:
+        printf("O produto escolhido foi a Pizza de quatro queijos, com valor de R$12.50 e a quantidade escolhida é igual a %i.  O custo total dessa compra é igual a %f", quantidade, custoTotal_5);
+      break;
+
+      default:
+      break;
     }
+      // FIM MÓDULO VENDAS
+
+}
+  //Função essencial - Responsável pela principal lógica acerca do pedindo.
+int efetuarPedido () {
+
+  vendas(); 
+  pague();
+  capturarCartao();
+}
+
+void mostrarMenuPrincipal() {
+    int dataTypeInteger;
+    int opcoesMenuPrincipal;
+  printf("\n+***********************************************************+\n");
+    printf("|  SEJA MUITO BEM-VINDO AO  DRIVE THRU DO MICKEY & DONALDS  |\n");
+    printf("+***********************************************************+\n");
+    printf("| Escolha uma das opcoes do que voce pode fazer no sistema  |\n");
+    printf("+***********************************************************+\n");
+    printf("| 1 - Efetuar um pedido                                     |\n");
+    printf("| 2 - Consultar os produtos existentes                      |\n");
+    printf("| 3 - Cadastrar um novo produto                             |\n");
+    printf("| 4 - Gerenciar a fila de entregas (Em desenvolvimento)     |\n");
+    printf("+***********************************************************+\n\n\n\n\n");
+  
+  printf("Digite o numero correspondente a umas das opcoes: ");
+  scanf("%d", &opcoesMenuPrincipal);
+
+  if ( (sizeof(opcoesMenuPrincipal) != sizeof(dataTypeInteger))){
+    printf("Você precisa digitar um número!");
+    mostrarMenuPrincipal();
+    return;
+  } else {
+
+    switch (opcoesMenuPrincipal) {
+      case 1:
+        efetuarPedido();
+        break;
+      case 2:
+        consultarProdutos();
+        break;
+      case 3:
+        cadastrarProduto();
+        break;
+      case 4:
+        gerenciarfila();
+        break;
+      default:
+        mostrarMenuPrincipal();
+        break;
+    }
+  } 
+
+}
+
+void cadastrarProduto() {
+  return 0;
+}
+
+void consultarProdutos() {
+  return 0;
+}
+
+void gerenciarfila() {
+  return 0;
+}
+int main(void) {
+  setlocale(LC_ALL, "Portuguese");
+  
+  mostrarMenuPrincipal();
+
+}
 
     //template 1
 
