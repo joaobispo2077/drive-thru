@@ -227,11 +227,12 @@ int vendas() {
 
 }
   //Função essencial - Responsável pela principal lógica acerca do pedido.
-int efetuarPedido () {
 
-  vendas(); 
-  pague();
-  capturarCartao();
+
+void efetuarPedido () {
+
+
+ consultarProdutos();
 }
 
 void mostrarMenuPrincipal() {
@@ -278,12 +279,62 @@ void mostrarMenuPrincipal() {
 
 }
 
+struct modeloProduto {
+  int codigoProduto;
+  char nomeProduto[50];
+  char valorProduto[5];
+} produto;
+
 void cadastrarProduto() {
-  return 0;
+  printf("\n+***********************************************************+\n");
+    printf("| CADASTRO DE PRODUTO - CAM  DRIVE THRU DO MICKEY & DONALDS |\n");
+    printf("+***********************************************************+\n");
+    printf("|  Preencha as informacoes para cadastrar um novo produto   |\n");
+    printf("+***********************************************************+\n");
+
+    printf("\nDigite o nome do produto novo: ");
+    scanf("%s", produto.nomeProduto);
+
+    printf("\nDigite o preco do produto novo: ");
+    scanf("%s", produto.valorProduto);
+
+    produto.codigoProduto = 10;
+
+    printf("+***********************************************************+\n\n\n\n\n");
+
+     FILE *file;
+    file = fopen("PRODUTOS.txt", "a");
+
+    if (file == NULL) {
+      printf("Nao foi possivel abrir o arquivo.\n");
+      getchar();
+      exit(0);
+    }
+
+    fputs(produto.nomeProduto, file);
+    fputs(produto.codigoProduto, file);
+    fputs(produto.valorProduto, file);
+
+  fclose(file);  
 }
 
 void consultarProdutos() {
-  return 0;
+     FILE *file;
+  file = fopen("PRODUTOS.txt", "r");
+
+  if (file == NULL) {
+    printf("Nao foi possivel abrir o arquivo.\n");
+    getchar();
+    exit(0);
+  }
+
+  char frase[100];
+
+  while (fgets(frase, 100, file) != NULL) {
+    printf("\n%s\n", frase);
+  }
+
+  fclose(file);  
 }
 
 void gerenciarfila() {
