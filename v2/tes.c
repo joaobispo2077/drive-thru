@@ -5,14 +5,13 @@
 
 // MÓDULO DE VENDAS
 int vendas() {
-
-    setlocale(LC_ALL, "Portuguese");
-
+    setlocale(LC_ALL, "Portuguese");  
     int codProd;
     int quantidade;
     float custoTotal_1, custoTotal_2, custoTotal_3, custoTotal_4, custoTotal_5;
 
-    printf("Selecione o código do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
+    printf("\nSelecione o código do produto escolhido pelo cliente -- checar PRODUTOS.DAT se necessário: \n\n");
+    printf("\n\nDigite o código do produto escolhido pelo cliente\n\n: ");
     scanf("%i", &codProd);
 
     printf("Digite a quantidade escolhida pelo cliente: "); 
@@ -87,11 +86,11 @@ int vendas() {
       // {3, "Coxinha de jaca", 3.0}, {4, "Pastel de brócolis com queijo", 6.0},
       // {5, "Pizza de quatro queijos", 12.5}};
 
-      // fprintf("Código do produto: %i -- Nome: %s -- custo do produto: R$ %f \n", baseDeDados[0].codigoProduto,
+      // printf("Código do produto: %i -- Nome: %s -- custo do produto: R$ %f \n", baseDeDados[0].codigoProduto,
       //                                                                            baseDeDados[0].nomeProduto,
       //                                                                            baseDeDados[0].custoProduto);
                                                                                             
-      // /* Close file to save file data */
+      /* Close file to save file data */
       // fclose(fPtr_vendas);
       
       // FIM DATABASE VENDAS
@@ -111,20 +110,22 @@ int vendas() {
   // MÓDULO PAGUE - Parte 1
   int pague(){ 
       setlocale(LC_ALL, "Portuguese");
-
-      char pagamento;
+      
+      int pagamento;
       int dinheiro, cartaoCredito_Debito, cheque;
       int lerCartao; 
       float valorPedido;
 
-      printf("Informe o método de pagamento -- digite: 1 para dinheiro, 2 para chequeo e 3 para cartão de crédito/cartão de débito -- : ");
-      scanf("%c", &pagamento);
+      printf("Informe o método de pagamento \n -- \n digite: 1 para dinheiro, \n 2 para chequeo e \n 3 para cartão de crédito/cartão de débito -- : \n");
+
+      printf("\nDigite o número da opção escolhida: ");
+      scanf("%i", &pagamento);
 
       dinheiro = 1;
       cartaoCredito_Debito = 2; 
       cheque = 3; 
 
-      printf("Informe aqui o valor total calculado anteriormente: %f \n");
+      printf("Informe aqui o valor total calculado anteriormente: \n");
       scanf("%f", &valorPedido);
 
       switch (pagamento) {
@@ -134,10 +135,10 @@ int vendas() {
 
       case 2: 
         printf("O valor total a ser pago em cheque é %f \n", valorPedido);
-      
+        break;
       case 3:
         printf("Para cartões de crédito ou débito, prossiga no preenchimento dos dados.");
-      
+        break;
       default:
         break;
       }
@@ -147,32 +148,33 @@ int vendas() {
 
   // MÓDULO PAGUE - PARTE 2
 
+
+      // int tamanhoString(char string[]) {
+
+      //   int numCaracteres = 0; 
+
+      //   while (string[ numCaracteres] != '0')
+      //         ++numCaracteres;
+        
+      //   ++numCaracteres;
+
+      //   return numCaracteres; 
+
+      // }
+
       int capturarCartao() {
         setlocale(LC_ALL, "Portuguese");
 
-        int tamanhoString(char *string[]);
+        // int tamanhoString(char string[]);
         char stringCartao[16];
 
         printf("Digite aqui o número do cartão sem caracteres especiais e sem espaços: \n");
         scanf("%s, stringCartao"); 
 
-        int num = tamanhoString(stringCartao);
-        system("pause"); 
+        // int num = tamanhoString(stringCartao);
+        // system("pause"); 
 
         return 0;
-      }
-
-      int tamanhoString(char *string[]) {
-
-        int numCaracteres = 0; 
-
-        while (string[numCaracteres] != '0')
-              ++numCaracteres;
-        
-        ++numCaracteres;
-
-        return numCaracteres; 
-
       }
         
 
@@ -225,37 +227,71 @@ int vendas() {
 
   // FIM MÓDULO PAGUE
 
+//modulo 4 entrega
+int clientePagou(int modoDePagamento) {
+    setlocale(LC_ALL, "Portuguese");
+    printf("PEDIDO PAGO COM ");
+    switch (modoDePagamento) {
+      case 1:
+    //    textcolor(13);
+        printf("cartão decrédito ou débito");
+      break;
+      case 2:
+  // textcolor(3);
+        printf("dinheiro");
+      break;
+      case 3:
+      //      textcolor(1);
+        printf("cheque");
+      break;
+}
 
+  // printf("\n+-----------------------------------------------------------+\n|                DRIVE THRU DO MICKEY & DONALDS             |\n+-----------------------------------------------------------+\n| Nro do pedido: 005                                        |\n+-----------------------------------------------------------+\n|Cód | Produto              | Custo Unit | Qtd | Valor item |\n+-----------------------------------------------------------+\n|  2 | PRODUTO DOIS         |       2,00 |  10 |      20,00 |");
+
+
+// "+-----------------------------------------------------------+
+// |                DRIVE THRU DO MICKEY & DONALDS             |
+// +-----------------------------------------------------------+
+// | Nro do pedido: 005                                        |
+// +-----------------------------------------------------------+
+// |Cód | Produto              | Custo Unit | Qtd | Valor item |
+// +-----------------------------------------------------------+
+// |  2 | PRODUTO DOIS         |       2,00 |  10 |      20,00 |"
+}
+int entrega()
+{
+  setlocale(LC_ALL, "Portuguese");
+  int pagou = 0;
+  int modoDePagamento = 0;
+
+
+  printf("\nPagamento Efetuado?\n");
+  printf("\n1 - Sim\n");
+  printf("\n2 - Não\n");
+  printf("\nDigite um número correspondente: ");
+  scanf("%i", &pagou);
+
+  if (pagou == 1)  {
+      printf("\nQual o modo de pagamento?\n");
+      printf("\n1 - Crédito/Débito\n");
+      printf("\n2 - Dinheiro\n");
+      printf("\n3 - Azul\n");
+      printf("\nDigite um número correspondente: ");
+      scanf("%i", &modoDePagamento);
+    clientePagou(modoDePagamento);
+    return;
+  } else if (pagou == 2) {
+  printf("Pagamento não efetuado");
+  exit(0);
+  }
+}
 
     int main(void) {
       setlocale(LC_ALL, "Portuguese");
 
-      printf("\n+***********************************************************+\n");
-        printf("|  SEJA MUITO BEM-VINDO AO  DRIVE THRU DO MICKEY & DONALDS  |\n");
-        printf("+***********************************************************+\n");
-        printf("|Insira as informacoes solicitadas para prosseguir com o    |\n");
-        printf("| o pedido ;D                                               |\n");
-        printf("+***********************************************************+\n");
-
-      efetuarPedido();
+      printf("Seja bem-vindo ao Drive-Thru Mickey & Donald. \n Insira as informações solicitadas para prosseguir com o pedido ;D");
       vendas(); 
       pague();
       capturarCartao();
-  
+      entrega();
     }
-
-    //template 1
-
-            // printf("\n+***********************************************************+\n|                DRIVE THRU DO MICKEY & DONALDS             |\n+***********************************************************+\n| Nro do pedido: 005                                        |\n+***********************************************************+\n|Cód | Produto              | Custo Unit | Qtd | Valor item |\n+***********************************************************+\n|  2 | PRODUTO DOIS         |       2,00 |  10 |      20,00 |");
-
-    // template 2
-    
-      // printf("\n+***********************************************************+\n");
-      //   printf("|                DRIVE THRU DO MICKEY & DONALDS             |\n");
-      //   printf("+***********************************************************+\n");
-      //   printf("| Nro do pedido: 005                                        |\n");
-      //   printf("+***********************************************************+\n");
-      //   printf("|Cód | Produto              | Custo Unit | Qtd | Valor item |\n");
-      //   printf("+***********************************************************+\n");
-      //   printf("| 2 | PRODUTO DOIS          |       2,00 |  10 |      20,00 |\n");
-      //   printf("+***********************************************************+\n");
