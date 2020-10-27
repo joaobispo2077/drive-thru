@@ -21,8 +21,7 @@ int main()
      * "data/file1.txt" is complete path to create file
      */
     fPtr = fopen("data/file1.txt", "w");
-    // Alternativa:
-    // fPtr = fopen("exemplo.txt", "w");
+
 
     /* fopen() return NULL if last operation was unsuccessful */
     if(fPtr == NULL)
@@ -36,8 +35,6 @@ int main()
     /* Input contents from user to store in file */
     printf("Enter contents to store in file : \n");
     fgets(data, DATA_SIZE, stdin);
-    // Alternativa:
-    // fprintf(fPtr, "Exemplo 1");
 
 
     /* Write data to file */
